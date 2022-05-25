@@ -1,0 +1,14 @@
+.main-container{
+
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+.video-container{
+    display: flex;
+    gap: 2rem;
+    padding: 3rem 0 1.5rem 0;
+    width: 80%;
+    flex-wrap: wrap;
+}

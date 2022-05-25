@@ -1,0 +1,69 @@
+.signup-container{
+    width: 100%;
+    max-width: 60rem;
+    margin: 7rem auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+    padding: 3rem;
+
+}
+
+.display-flex-column{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.display-flex-column input{
+    border: 0.5px solid var(--light-black);
+    padding: 1.3rem 2.5rem;
+    width: 70%;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    
+}
+.display-flex-column P{
+    font-size: 1.5rem;
+}
+.display-flex-column input:focus{
+    outline: 1px solid var(--primary-color);
+}
+.display-flex-row{
+    display: flex;
+    align-items: center;
+}
+
+.display-flex-row .form-label{
+    width: 30%;
+    font-size: 1.7rem;
+}
+.signup-title{
+    margin-bottom: 1.5em;
+    font-size: 2.5rem;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.register-btn{
+    padding: 1.3rem 2rem;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    font-size: 1.7rem;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5PX;
+    font-weight: bold;
+}
+
+.register-btn:hover{
+    background-color: var(--light-black);
+}
+.login-link{
+    color:rgb(0,0,0);
+    border-bottom: 1px solid var(--primary-color);
+    padding: 0 0.5rem;
+}
+
+.login-link:hover{
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}

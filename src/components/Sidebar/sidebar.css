@@ -1,0 +1,30 @@
+.sidebar-item-list{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sidebar-container{
+    position: sticky;
+    top:3rem; 
+    width: 15%;
+    top: 6.5rem;
+    height: 95vh;
+    padding: 4rem 1rem;
+    /* border: 1px solid red; */
+   
+}
+
+.sidebar-item{
+    display: flex;
+    gap: 1.2rem;
+    cursor: pointer;
+    padding: 1.2rem 2rem;
+    font-size: 2rem;
+    width: 100%;
+    /* border: 1px solid green; */
+}
+
+.sidebar-item:hover{
+    background-color: var(--light-green);
+}
