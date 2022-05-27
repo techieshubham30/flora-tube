@@ -9,9 +9,8 @@
     top:3rem; 
     width: 15%;
     top: 6.5rem;
-    height: 95vh;
+    height: 100vh;
     padding: 4rem 1rem;
-    /* border: 1px solid red; */
    
 }
 
@@ -22,9 +21,12 @@
     padding: 1.2rem 2rem;
     font-size: 2rem;
     width: 100%;
-    /* border: 1px solid green; */
 }
 
 .sidebar-item:hover{
+    background-color: var(--light-green);
+}
+
+.active{
     background-color: var(--light-green);
 }

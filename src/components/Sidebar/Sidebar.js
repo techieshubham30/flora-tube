@@ -1,40 +1,37 @@
 import "./sidebar.css";
 import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
+  const active = ({ isActive }) =>
+    isActive ? "sidebar-item active" : "sidebar-item";
   return (
     <aside className="sidebar-container shadow-box">
       <ul className="sidebar-item-list">
-        <li className="sidebar-item">
-          <Link to="/">
-            <i className="fas fa-compass"></i>
-          </Link>
+        <NavLink to="/" className={active}>
+          <i className="fas fa-compass"></i>
           <span>Explore</span>
-        </li>
-        <li className="sidebar-item">
-          <Link to="/">
-            <i className="fas fa-folder"></i>
-          </Link>
+        </NavLink>
+
+        <NavLink to="/playlist" className={active}>
+          <i className="fas fa-folder"></i>
           <sapn>Playlists</sapn>
-        </li>
-        <li className="sidebar-item">
-          <Link to="/">
-            <i className="fas fa-thumbs-up"></i>
-          </Link>
+        </NavLink>
+
+        <NavLink to="/liked" className={active}>
+          <i className="fas fa-thumbs-up"></i>
           <sapn>Liked Videos</sapn>
-        </li>
-        <li className="sidebar-item">
-          <Link to="/">
-            <i className="fas fa-clock"></i>
-          </Link>
+        </NavLink>
+
+        <NavLink to="/watchlater" className={active}>
+          <i className="fas fa-clock"></i>
           <sapn>Watch Later</sapn>
-        </li>
-        <li className="sidebar-item">
-          <Link to="/">
-            <i className="fas fa-history"></i>
-          </Link>
+        </NavLink>
+
+        <NavLink to="/history" className={active}>
+          <i className="fas fa-history"></i>
           <sapn>History</sapn>
-        </li>
+        </NavLink>
       </ul>
     </aside>
   );
