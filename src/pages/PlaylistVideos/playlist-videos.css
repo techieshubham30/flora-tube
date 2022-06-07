@@ -1,0 +1,14 @@
+
+
+.about-playlist{
+    display: flex;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    justify-content: space-between;
+}
+
+.playlist-wrapper{
+    width: 80%;
+}
+

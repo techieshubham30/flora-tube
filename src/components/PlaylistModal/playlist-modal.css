@@ -1,0 +1,46 @@
+.modal-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    place-items: center;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    
+}
+
+
+.text-only-card{
+    background-color: var(--white-color);
+    width: fit-content;
+    font-size: 1.5rem;
+}
+
+.card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    margin-bottom: 0.5rem;
+    border-bottom: 0.5px solid var(--light-black);
+   
+}
+
+.create-playlist-btn{
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: inherit;
+    gap: 1rem;
+    color: var(--primary-color);
+    margin-top: 11px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.playlist-options{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}

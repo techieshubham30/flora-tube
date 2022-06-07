@@ -1,12 +1,11 @@
 .video-card-container{
     cursor: pointer;
-    /* border: 1px solid black; */
-    border-bottom: 0.5px solid grey;
+    position: relative;
     width: 22%;
 }
 
 .video-card-container:hover{
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
 }
 
 
@@ -16,8 +15,6 @@
     align-items: flex-start;
     justify-content: center;
     padding: 0.6rem 0.5rem;
-   /* border: 1px solid red; */
-
 }
 .card-text{
     display: flex;
@@ -35,4 +32,38 @@
 
 .card-creator{
     font-size: 1rem;
+}
+
+.more-option{
+    font-size: 1.3rem;
+}
+
+.more-option-modal{
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  position: absolute;
+  right: 0;
+  top: 16rem;
+  width: fit-content;
+  padding: 1rem 2rem;
+  z-index: 2;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
+  font-size: 1.5rem;
+
+
+}
+
+.more-option-modal-item{
+    display: flex;
+    gap: 1.3rem;
+    
+}
+
+.more-option-modal-item:hover{
+    color: var(--primary-color);
+}
+.more-option-modal-icon{
+    font-size: 1.5rem;
 }

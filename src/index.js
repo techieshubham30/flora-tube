@@ -6,7 +6,7 @@ import { VideosProvider } from "./contexts/VideosContext";
 import { BrowserRouter as Router } from "react-router-dom";
 import { makeServer } from "./server";
 import { AuthProvider } from "./contexts/AuthContext";
-
+import { PlaylistProvider } from "./contexts/PlaylistContext";
 
 // Call make Server
 makeServer();
@@ -14,11 +14,13 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <VideosProvider>
-        <AuthProvider>
-          <App />
-        </AuthProvider>
-      </VideosProvider>
+      <AuthProvider>
+        <VideosProvider>
+          <PlaylistProvider>
+            <App />
+          </PlaylistProvider>
+        </VideosProvider>
+      </AuthProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")

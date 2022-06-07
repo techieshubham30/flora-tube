@@ -1,0 +1,9 @@
+.playlist-input{
+    margin: 0.5rem 0;
+}
+
+.playlist-action .btn{
+    width: 100%;
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+}
