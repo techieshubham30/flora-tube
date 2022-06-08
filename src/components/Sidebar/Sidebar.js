@@ -13,24 +13,24 @@ const Sidebar = () => {
           <span>Explore</span>
         </NavLink>
 
-        <NavLink to="/playlist" className={active}>
-          <i className="fas fa-folder"></i>
-          <sapn>Playlists</sapn>
+        <NavLink to="/playlists" className={active}>
+        <i className="fas fa-folder-plus"></i>
+          <span>Playlists</span>
         </NavLink>
 
         <NavLink to="/liked" className={active}>
           <i className="fas fa-thumbs-up"></i>
-          <sapn>Liked Videos</sapn>
+          <span>Liked Videos</span>
         </NavLink>
 
         <NavLink to="/watchlater" className={active}>
           <i className="fas fa-clock"></i>
-          <sapn>Watch Later</sapn>
+          <span>Watch Later</span>
         </NavLink>
 
         <NavLink to="/history" className={active}>
           <i className="fas fa-history"></i>
-          <sapn>History</sapn>
+          <span>History</span>
         </NavLink>
       </ul>
     </aside>

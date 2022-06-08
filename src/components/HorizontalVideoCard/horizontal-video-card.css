@@ -1,0 +1,15 @@
+
+.horizontal-card{
+    border-bottom: 1px solid var(--grey-color);
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+.horizontal-card .card-text-container{
+    width: 80%;
+    padding: 0 0 0 1rem;
+    font-size: 1.3rem;
+}
+
+.horizontal-card .trash-btn{
+    font-size: 1.3rem;
+}

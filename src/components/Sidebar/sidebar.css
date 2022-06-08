@@ -1,7 +1,7 @@
 .sidebar-item-list{
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.2rem;
 }
 
 .sidebar-container{
@@ -16,10 +16,10 @@
 
 .sidebar-item{
     display: flex;
-    gap: 1.2rem;
+    gap: 1rem;
     cursor: pointer;
     padding: 1.2rem 2rem;
-    font-size: 2rem;
+    font-size: 1.7rem;
     width: 100%;
 }
 
