@@ -1,0 +1,8 @@
+.watch-later-container{
+    display: flex;
+    gap: 5rem;
+    align-content: flex-start;
+    padding: 3rem 1.5rem 1.5rem 2.5rem;
+    width: 85%;
+    flex-wrap: wrap;
+}

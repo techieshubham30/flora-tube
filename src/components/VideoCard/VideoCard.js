@@ -3,14 +3,58 @@ import { useState } from "react";
 import "./video-card.css";
 import { PlaylistModal } from "../PlaylistModal/PlaylistModal";
 import { useAuth } from "../../contexts/AuthContext";
+import { useWatchLater } from "../../contexts/WatchLaterContext";
+import {
+  addToWatchLaterService,
+  removeFromWatchLaterService,
+} from "../../services/watchLaterService";
 const VideoCard = ({ video }) => {
   const navigate = useNavigate();
   const { _id, title, creator } = video;
   const [moreOptionModal, setMoreOptionModal] = useState(false);
   const [playlistModal, setPlaylistModal] = useState(false);
   const {
-    auth: { isAuthenticated },
+    auth: { isAuthenticated, token },
   } = useAuth();
+
+  const {
+    watchLaterState: { watchLaterVideos },
+    dispatchWatchLater,
+  } = useWatchLater();
+  const videoInWatchLater = watchLaterVideos.find(
+    (item) => item._id === video._id
+  );
+
+  const removeFromWatchLaterHandler = async ({ video }) => {
+    try {
+      const res = await removeFromWatchLaterService({
+        token,
+        video,
+      });
+      if (res.status === 200) {
+        dispatchWatchLater({
+          type: "GET_WATCHLATER",
+          payload: { watchLaterVideos: res.data.watchlater },
+        });
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const addToWatchLaterHandler = async ({ video }) => {
+    try {
+      const res = await addToWatchLaterService({ token, video });
+      if (res.status === 201) {
+        dispatchWatchLater({
+          type: "GET_WATCHLATER",
+          payload: { watchLaterVideos: res.data.watchlater },
+        });
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   return (
     <div className="video-card-container">
@@ -40,10 +84,24 @@ const VideoCard = ({ video }) => {
       <div>
         {moreOptionModal ? (
           <div className="more-option-modal">
-            <span className="more-option-modal-item">
+            <span
+              className="more-option-modal-item"
+              onClick={() => {
+                isAuthenticated
+                  ? videoInWatchLater
+                    ? removeFromWatchLaterHandler({ video })
+                    : addToWatchLaterHandler({ video })
+                  : navigate("/signin");
+                setMoreOptionModal(false);
+              }}
+            >
               {" "}
-              <i className="fas fa-clock more-option-modal-icon"></i> Save to
-              Watch later
+              <i className="fas fa-clock more-option-modal-icon"></i>
+              {isAuthenticated
+                ? videoInWatchLater
+                  ? "Remove from watch later"
+                  : "Save to watch later"
+                : "Save to watch later"}
             </span>
             <span
               className="more-option-modal-item"
@@ -53,8 +111,8 @@ const VideoCard = ({ video }) => {
               }}
             >
               {" "}
-              <i className="fas fa-folder-plus  more-option-modal-icon"></i> Save to
-              Playlist
+              <i className="fas fa-folder-plus  more-option-modal-icon"></i>{" "}
+              Save to Playlist
             </span>
           </div>
         ) : null}
