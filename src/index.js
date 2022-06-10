@@ -7,6 +7,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { makeServer } from "./server";
 import { AuthProvider } from "./contexts/AuthContext";
 import { PlaylistProvider } from "./contexts/PlaylistContext";
+import { WatchLaterProvider } from "./contexts/WatchLaterContext";
+import { LikeProvider } from "./contexts/LikeContext";
 
 // Call make Server
 makeServer();
@@ -17,7 +19,11 @@ ReactDOM.render(
       <AuthProvider>
         <VideosProvider>
           <PlaylistProvider>
-            <App />
+            <WatchLaterProvider>
+              <LikeProvider>
+                <App />
+              </LikeProvider>
+            </WatchLaterProvider>
           </PlaylistProvider>
         </VideosProvider>
       </AuthProvider>

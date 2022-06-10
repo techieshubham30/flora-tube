@@ -7,6 +7,8 @@ import mockmanEs from "mockman-js";
 import { SingleVideo } from "../pages/SingleVideo/SingleVideo";
 import { Playlist } from "../pages/Playlist/Playlist";
 import { PlaylistVideos } from "../pages/PlaylistVideos/PlaylistVideos";
+import { WatchLater } from "../pages/WatchLater/WatchLater";
+import { LikeVideos } from "../pages/LikedVideos/LikeVideos";
 
 const MyRoutes = () => {
   return (
@@ -15,6 +17,22 @@ const MyRoutes = () => {
       <Route path="/signin" element={<Signin />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/videos/:videoId" element={<SingleVideo />} />
+      <Route
+        path="watchlater"
+        element={
+          <PrivateRoutes>
+            <WatchLater />
+          </PrivateRoutes>
+        }
+      />
+      <Route
+        path="likes"
+        element={
+          <PrivateRoutes>
+            <LikeVideos />
+          </PrivateRoutes>
+        }
+      />
       <Route
         path="/playlists"
         element={

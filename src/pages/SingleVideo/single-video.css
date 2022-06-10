@@ -47,3 +47,11 @@
     font-size: 1.8rem;
     cursor: pointer;
 }
+
+.clicked{
+    color: var(--primary-color);
+}
+
+.gray-color{
+    color: gray;
+}

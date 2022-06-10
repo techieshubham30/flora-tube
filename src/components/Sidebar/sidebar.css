@@ -29,4 +29,6 @@
 
 .active{
     background-color: var(--light-green);
+    color: var(--primary-color);
 }
+
