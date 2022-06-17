@@ -2,7 +2,10 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import "./navbar.css";
 const Navbar = () => {
-  const { logoutHandler } = useAuth();
+  const {
+    logoutHandler,
+    auth: { isAuthenticated },
+  } = useAuth();
   return (
     <header className="header shadow-box">
       <nav className="navbar">
@@ -24,9 +27,15 @@ const Navbar = () => {
           </form>
         </div>
         <div className="nav-right">
-          <Link to="/signin" onClick={logoutHandler}>
-            <i className="fas fa-sign-in-alt "></i>
-          </Link>
+          {isAuthenticated ? (
+            <Link to="/signin" onClick={logoutHandler}>
+            <i>logout</i>
+            </Link>
+          ) : (
+            <Link to="/signin">
+              <i>login</i>
+            </Link>
+          )}
         </div>
       </nav>
     </header>

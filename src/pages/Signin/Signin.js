@@ -68,8 +68,8 @@ const Signin = () => {
           onClick={(e) => {
             e.preventDefault();
             setFormData({
-              email: "adarshbalika@gmail.com",
-              password: "adarshBalika123",
+              email: "shubh870@gmail.com",
+              password: "shubh123",
             });
             loginHandler();
           }}

@@ -9,6 +9,7 @@ import { Playlist } from "../pages/Playlist/Playlist";
 import { PlaylistVideos } from "../pages/PlaylistVideos/PlaylistVideos";
 import { WatchLater } from "../pages/WatchLater/WatchLater";
 import { LikeVideos } from "../pages/LikedVideos/LikeVideos";
+import { History } from "../pages/History/History";
 
 const MyRoutes = () => {
   return (
@@ -17,6 +18,7 @@ const MyRoutes = () => {
       <Route path="/signin" element={<Signin />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/videos/:videoId" element={<SingleVideo />} />
+      <Route path="/history" element={<History/>}/>
       <Route
         path="watchlater"
         element={
