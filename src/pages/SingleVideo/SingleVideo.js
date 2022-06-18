@@ -1,7 +1,7 @@
 import "./single-video.css";
 import { Sidebar } from "../../components/Sidebar/Sidebar";
 import ReactPlayer from "react-player";
-import {useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useVideos } from "../../contexts/VideosContext";
 import { getVideoLink } from "../../utils/getVideoLink";
 import { useWatchLater } from "../../contexts/WatchLaterContext";
@@ -11,12 +11,14 @@ import {
 } from "../../services/watchLaterService";
 import { useAuth } from "../../contexts/AuthContext";
 import { useLike } from "../../contexts/LikeContext";
-import { useState } from "react";
+import { useHistory } from "../../contexts/HistoryContext";
+import { useEffect, useState } from "react";
 import { PlaylistModal } from "../../components/PlaylistModal/PlaylistModal";
 import {
   addLikedVideoService,
   removeLikedVideoService,
 } from "../../services/likeServices";
+import { addToHistoryService } from "../../services/historyService";
 
 const SingleVideo = () => {
   const { videoId } = useParams();
@@ -40,11 +42,18 @@ const SingleVideo = () => {
   );
 
   const videoInLike = likedVideos.find((v) => v._id === video._id);
-  console.log(videoInLike);
 
   const {
     auth: { isAuthenticated, token },
   } = useAuth();
+
+  const {
+    historyState: { history },
+    dispatchHistory,
+  } = useHistory();
+
+  const videoInHistory = history.find((item) => item._id === video._id);
+
   const removeFromWatchLaterHandler = async ({ video }) => {
     try {
       const res = await removeFromWatchLaterService({
@@ -103,6 +112,31 @@ const SingleVideo = () => {
       console.log(e);
     }
   };
+
+  const addVideoToHistory = async ({ video }) => {
+    if (video) {
+      try {
+        const res = await addToHistoryService({ token, video });
+        if (res.status === 201) {
+          dispatchHistory({
+            type: "GET_HISTORY",
+            payload: { history: res.data.history },
+          });
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      if (!videoInHistory) {
+        addVideoToHistory({ video: video });
+      }
+    }
+  }, []);
+
   return (
     <section className="main-container">
       <Sidebar />

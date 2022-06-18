@@ -8,6 +8,8 @@ import {
   addToWatchLaterService,
   removeFromWatchLaterService,
 } from "../../services/watchLaterService";
+import { useHistory } from "../../contexts/HistoryContext";
+import { removeFromHistoryService } from "../../services/historyService";
 const VideoCard = ({ video }) => {
   const navigate = useNavigate();
   const { _id, title, creator } = video;
@@ -24,6 +26,13 @@ const VideoCard = ({ video }) => {
   const videoInWatchLater = watchLaterVideos.find(
     (item) => item._id === video._id
   );
+
+  const {
+    historyState: { history },
+    dispatchHistory,
+  } = useHistory();
+
+  const videoInHistory = history.find((item) => item._id === video._id);
 
   const removeFromWatchLaterHandler = async ({ video }) => {
     try {
@@ -49,6 +58,20 @@ const VideoCard = ({ video }) => {
         dispatchWatchLater({
           type: "GET_WATCHLATER",
           payload: { watchLaterVideos: res.data.watchlater },
+        });
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const removeVideoFromHistoryHandler = async ({ video }) => {
+    try {
+      const res = await removeFromHistoryService({ token, video });
+      if (res.status === 200) {
+        dispatchHistory({
+          type: "GET_HISTORY",
+          payload: { history: res.data.history },
         });
       }
     } catch (e) {
@@ -114,6 +137,18 @@ const VideoCard = ({ video }) => {
               <i className="fas fa-folder-plus  more-option-modal-icon"></i>{" "}
               Save to Playlist
             </span>
+            {videoInHistory ? (
+              <span
+                className="more-option-modal-item"
+                onClick={() => {
+                  removeVideoFromHistoryHandler({ video });
+                  setMoreOptionModal(false);
+                }}
+              >
+                <i className="fas fa-history"></i>
+                Remove from history
+              </span>
+            ) : null}
           </div>
         ) : null}
 

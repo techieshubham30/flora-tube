@@ -93,4 +93,29 @@ export const videos = [
     views: "822,047",
     releaseDate: "Dec 1, 2017",
   },
+  {
+    _id: "dT7UDXjYoqw",
+    title: "Indoor Hanging Plants That Are Easy to Grow",
+    creator: "Green plants",
+    img: "https://i3.ytimg.com/vi/dT7UDXjYoqw/maxresdefault.jpg",
+    views: "6,080",
+    releaseDate: " Jun 16, 2022",
+  },
+  {
+    _id: "G-w2gpbyGaM",
+    title:
+      "Propagating all my indoor plants from cuttings in water during the lockdown",
+    creator: "Garden Up",
+    img: "https://i3.ytimg.com/vi/G-w2gpbyGaM/maxresdefault.jpg",
+    views: "7,255,304",
+    releaseDate: "Apr 18, 2020",
+  },
+  {
+    _id: "J6n2QM16BZg",
+    title: "Starting A Plant Business 2022 💚",
+    creator: "The Jungle Haven",
+    img: "https://i3.ytimg.com/vi/G-w2gpbyGaM/maxresdefault.jpg",
+    views: "18,159",
+    releaseDate: "Feb 2, 2022",
+  },
 ];
